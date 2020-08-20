@@ -1,0 +1,12 @@
+{% extends "blog/layout.html" %}
+{% block content %}
+<form method="POST">
+{% csrf_token %}
+    <fieldset>
+      <legend>ToDO</legend>
+      <h2>Are sure from deleting <strong><u>{{object.todo}}</u></strong> ?</h2>
+      <button type="submit" class="btn btn-danger">Yes</button>
+      <a href="{% url 'blog-home' %}" class="btn btn-primary">Cancel</a>
+    </fieldset>
+  </form>
+{% endblock %}

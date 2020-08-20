@@ -1,0 +1,30 @@
+{% extends "blog/layout.html" %}
+{% block content %}
+<h1></h1>
+<div class="row pull-right">
+  <a href="{% url 'blog-new' %}" class="btn btn-primary ">+ New</a>
+</div>
+<hr>
+<div class="row">
+
+    {% for todo in todos %}
+        
+    <div class="col-lg-4">
+        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header"> <a style="color: aliceblue;" href="/todo/update/{{ todo.id }}">{{todo.todo}}</a></div>
+            <div class="card-body">
+              <h4 class="card-title"></h4>
+              <p class="card-text">{{todo.desc}}.</p>
+            </div>
+            <div class="modal-footer">
+              <a href="{% url 'blog-update' todo.id %}" class="btn btn-success">Edit</a>
+              <a href="{% url 'blog-delete' todo.id %}" class="btn btn-danger">Delete</a>
+            </div>
+
+          </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
